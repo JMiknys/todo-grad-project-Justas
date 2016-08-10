@@ -5,7 +5,7 @@ deployment:
   prod:
     branch: master
     heroku:
-      appname: todo-grad-project-Justas
+      appname: todo-grad-project-justas
 machine:
   node:
     version: 6.3.1
