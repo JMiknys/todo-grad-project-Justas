@@ -68,7 +68,7 @@ function getDeleteButton(todoID) {
         createRequest.onload = function() {
             if (this.status === 200) {
                 reloadTodoList();
-          } else {
+            } else {
                 error.textContent = "Failed to delete item. Server returned " + this.status + " - " +
                 this.responseText;
             }
@@ -77,7 +77,6 @@ function getDeleteButton(todoID) {
     };
     btn.appendChild(document.createTextNode("Delete me :)"));
     btn.setAttribute("class", "deleteButton");
-    
     return btn;
 }
 
