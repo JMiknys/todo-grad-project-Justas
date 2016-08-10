@@ -54,7 +54,7 @@ function reloadTodoList() {
             listItem.textContent = todo.title;
 
             listItem.appendChild(getDeleteButton(todo.id));
-            listItem.appendChild(getCompleteButton());
+            listItem.appendChild(getCompleteButton(todo.id));
             todoList.appendChild(listItem);
         });
     });
@@ -81,7 +81,7 @@ function getDeleteButton(todoID) {
   return btn;
 }
 
-function getCompleteButton() {
+function getCompleteButton(todoID) {
     var btn = document.createElement("BUTTON");
     btn.onclick = function () {
         var createRequest = new XMLHttpRequest();
