@@ -3,7 +3,7 @@ general:
     - "build_artifacts"
 deployment:
   prod:
-    branch: master
+    branch: rest-api
     heroku:
       appname: todo-grad-project-justas
 machine:
