@@ -44,14 +44,15 @@ module.exports = function(port, middleware, callback) {
     });
 
     function getTodo(id) {
-        /*
+
         return todos.filter(function(todo) {
             return todo.id === id;
         })[0];
-        */
+        /*
         return _.find(todos, function(todo) {
             return todo.id === id;
         });
+        */
     }
 
     var server = app.listen(port, callback);
