@@ -64,6 +64,14 @@ testing.describe("end to end", function() {
                 assert.equal(elements.length, 2);
             });
         });
+        testing.it("TODO's can be deleted", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.getTodoList();
+            helpers.deleteTodo();
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 0);
+            });
+        });
     });
 });
-
