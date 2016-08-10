@@ -24,7 +24,7 @@ h1 {
     color: white;
 }
 
-.deleteButton {
+.deleteButton, .completeButton {
  background-color:#456185;
  border: 2px solid #354b68;
  color: #FFF;
@@ -45,4 +45,12 @@ h1 {
   -moz-border-radius: 4px;
   border-radius: 4px;
   padding: 5px;
+}
+
+li.complete {
+  color: green;
+}
+
+li.incomplete {
+  color: red;
 }

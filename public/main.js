@@ -54,7 +54,9 @@ function reloadTodoList() {
             listItem.textContent = todo.title;
 
             listItem.appendChild(getDeleteButton(todo.id));
-            listItem.appendChild(getCompleteButton(todo.id));
+            listItem.appendChild(getCompleteButton(todo.id, todo.title));
+
+            listItem.setAttribute("class", todo.isComplete ? "complete" : "incomplete");
             todoList.appendChild(listItem);
         });
     });
@@ -80,11 +82,16 @@ function getDeleteButton(todoID) {
     return btn;
 }
 
-function getCompleteButton(todoID) {
+function getCompleteButton(todoID, title) {
     var btn = document.createElement("BUTTON");
     btn.onclick = function () {
         var createRequest = new XMLHttpRequest();
         createRequest.open("PUT", "/api/todo/" + todoID);
+        createRequest.setRequestHeader("Content-type", "application/json");
+        createRequest.send(JSON.stringify({
+            title: title,
+            isComplete: true
+        }));
         createRequest.onload = function() {
             if (this.status === 200) {
                 reloadTodoList();
@@ -93,7 +100,7 @@ function getCompleteButton(todoID) {
                 this.responseText;
             }
         };
-        createRequest.send();
+        //createRequest.send();
     };
     btn.appendChild(document.createTextNode("Complete"));
     btn.setAttribute("class", "completeButton");
