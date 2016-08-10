@@ -5,10 +5,7 @@ deployment:
   prod:
     branch: master
     heroku:
-      appname: todo-grad-project-justas
+      appname: todo-grad-project-Justas
 machine:
   node:
     version: 6.3.1
-dependencies:
-  pre:
-    - npm install grunt-cli
