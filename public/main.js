@@ -52,27 +52,54 @@ function reloadTodoList() {
         todos.forEach(function(todo) {
             var listItem = document.createElement("li");
             listItem.textContent = todo.title;
-            var btn = document.createElement("BUTTON");
-            btn.onclick = function () {
-                var createRequest = new XMLHttpRequest();
-                createRequest.open("DELETE", "/api/todo/" + todo.id);
-                createRequest.onload = function() {
-                    if (this.status === 200) {
-                        reloadTodoList();
-                    } else {
-                        error.textContent = "Failed to delete item. Server returned " + this.status + " - " +
-                        this.responseText;
-                    }
-                };
-                createRequest.send();
-            };
-            btn.appendChild(document.createTextNode("Delete me :)"));
-            btn.setAttribute("class", "deleteButton");
-            console.log(btn);
-            listItem.appendChild(btn);
+
+            listItem.appendChild(getDeleteButton(todo.id));
+            listItem.appendChild(getCompleteButton());
             todoList.appendChild(listItem);
         });
     });
+}
+
+function getDeleteButton(todoID) {
+  var btn = document.createElement("BUTTON");
+  btn.onclick = function () {
+      var createRequest = new XMLHttpRequest();
+      createRequest.open("DELETE", "/api/todo/" + todoID);
+      createRequest.onload = function() {
+          if (this.status === 200) {
+              reloadTodoList();
+          } else {
+              error.textContent = "Failed to delete item. Server returned " + this.status + " - " +
+              this.responseText;
+          }
+      };
+      createRequest.send();
+  };
+  btn.appendChild(document.createTextNode("Delete me :)"));
+  btn.setAttribute("class", "deleteButton");
+
+  return btn;
+}
+
+function getCompleteButton() {
+    var btn = document.createElement("BUTTON");
+    btn.onclick = function () {
+        var createRequest = new XMLHttpRequest();
+        createRequest.open("DELETE", "/api/todo/" + todoID);
+        createRequest.onload = function() {
+            if (this.status === 200) {
+                reloadTodoList();
+            } else {
+                error.textContent = "Failed to delete item. Server returned " + this.status + " - " +
+                this.responseText;
+            }
+        };
+        createRequest.send();
+    };
+    btn.appendChild(document.createTextNode("Complete"));
+    btn.setAttribute("class", "completeButton");
+
+    return btn;
 }
 
 reloadTodoList();
