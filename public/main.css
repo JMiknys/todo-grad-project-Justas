@@ -24,33 +24,25 @@ h1 {
     color: white;
 }
 
-.deleteButton, .completeButton {
- background-color:#456185;
- border: 2px solid #354b68;
- color: #FFF;
- text-align: center;
- -webkit-border-radius: 4px;
- -moz-border-radius: 4px;
- border-radius: 4px;
- padding: 5px;
- margin-left: 30px;
-}
-
-#submit-todo {
-  background-color:#6888b1;
-  border: 2px solid #354b68;
-  color: #FFF;
-  text-align: center;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  padding: 5px;
-}
-
 li.complete {
   color: green;
 }
 
 li.incomplete {
   color: red;
+}
+
+.button {
+  background-color:#456185;
+  border: 2px solid #354b68;
+  color: #FFF;
+  text-align: center;
+  -webkit-border-radius: 20px;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  margin: 3px 5px 3px 3px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 5px;
 }
