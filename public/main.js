@@ -15,6 +15,7 @@ form.onsubmit = function(event) {
     todoTitle.value = "";
     event.preventDefault();
 };
+
 function showAllTodo() {
     showTodos = "all";
     reloadTodoList();
@@ -169,3 +170,8 @@ function getDeleteCompletedButton() {
 }
 
 reloadTodoList();
+
+var id = setInterval(function () {
+    console.log("List reloaded");
+    reloadTodoList();
+}, 20000);
