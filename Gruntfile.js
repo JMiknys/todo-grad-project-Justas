@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 
     var testOutputLocation = process.env.CIRCLE_TEST_REPORTS || "test_output";
     var artifactsLocation = "build_artifacts";
+    grunt.loadNpmTasks("grunt-exec");
     grunt.initConfig({
         jshint: {
             all: ["Gruntfile.js", "server.js", "server/**/*.js", "test/**/*.js", "public/**/*.js"],
@@ -66,6 +67,9 @@ module.exports = function(grunt) {
                     functions: 100
                 }
             }
+        },
+        exec: {
+          cmd: "npm start"
         }
     });
 
@@ -93,4 +97,5 @@ module.exports = function(grunt) {
     grunt.registerTask("ci-test", ["check", "mochaTest:ci", "mocha_istanbul:ci", "istanbul_report",
         "istanbul_check_coverage"]);
     grunt.registerTask("default", "test");
+    grunt.registerTask("serve", ["exec"]);
 };

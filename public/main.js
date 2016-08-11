@@ -171,7 +171,8 @@ function getDeleteCompletedButton() {
 
 reloadTodoList();
 
-var id = setInterval(function () {
-    console.log("List reloaded");
-    reloadTodoList();
+setTimeout(function () {
+    setTimeout(function () {
+        reloadTodoList();
+    }, 20000);
 }, 20000);
