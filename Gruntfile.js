@@ -69,7 +69,7 @@ module.exports = function(grunt) {
             }
         },
         exec: {
-          cmd: "npm start"
+            cmd: "npm start"
         }
     });
 
