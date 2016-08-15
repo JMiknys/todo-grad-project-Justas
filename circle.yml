@@ -3,9 +3,6 @@ general:
     - "build_artifacts"
 deployment:
   prod:
-    branch: rest-api
+    branch: master
     heroku:
-      appname: todo-grad-project-justas
-machine:
-  node:
-    version: 6.3.1
+      appname: todo-grad-project
