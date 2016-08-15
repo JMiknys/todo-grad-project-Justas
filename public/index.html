@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="todoApp">
     <head>
         <meta charset="utf-8">
         <title>TODO List</title>
         <link href="main.css" rel="stylesheet" type="text/css">
         <link rel="icon" type="image/ico" href="favicon.ico">
+        <!--<script src="../node_modules/angular/angular.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+        <script src="resources/todoAngular.js"></script>
     </head>
     <body>
         <header>
             <h1>TODO List</h1>
         </header>
+        <!--
         <div id="count-label"></div>
         <section>
             <h2 id="todo-list-placeholder">Loading...</h2>
@@ -24,6 +30,39 @@
             <div id="form-controls"></div>
             <div id="error"></div>
         </section>
+        -->
+        <!--Angular application goes here! -->
+        <section>
+          <div id="wrapper" ng-controller="TodoListController as todoList">
+            <h2 id="todo-list-placeholder">Loading...</h2>
+            <div>
+              <ul class="filters">
+                  <li ng-repeat="filter in filters">
+                      <button type="button" ng-click="setFilter(filter)" class = "button">{{filter.name}}</button>
+                  </li>
+              </ul>
+            </div>
+            <div style="clear: both;"></div>
+            <span class="count">{{todoList.remaining()}} task(s) incomplete out of {{todos.length}}.</span>
+            <ul class="unstyled" id="todo-list">
+              <li class="paper" ng-repeat="todo in todos | filter:myFilter | filter:$todoList.query">
+                <label class="checkbox">
+                  <input ng-checked="todo.isComplete" type="checkbox" ng-click="todoList.update(todo.id)">
+                  <span class="done-{{todo.isComplete}}">{{todo.title}}</span>
+                  <button ng-click="todoList.delete(todo.id)" class="button" >Delete me:)</button>
+                </label>
+              </li>
+            </ul>
+            <form id="todo-form" ng-submit="todoList.addNote()">
+              <input id="new-todo" type="text" ng-model="todoList.todoTitle"  size="30"
+                     placeholder="add new todo here">
+              <input id="submit-todo" class="btn-primary button" type="submit" value="Create a note">
+            </form>
+            <div>Search: <input ng-model="$todoList.query" placeholder="Search for a note" /></div>
+            <input ng-show="todos.length - todoList.remaining() > 0" ng-click="todoList.deleteCompleted()" class="button" value="Delete all completed">
+          </div>
+          <div id="error"></div>
+       </section>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
