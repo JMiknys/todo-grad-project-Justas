@@ -5,10 +5,12 @@
         <title>TODO List</title>
         <link href="main.css" rel="stylesheet" type="text/css">
         <link rel="icon" type="image/ico" href="favicon.ico">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
-        <script src="resources/todoAngular.js"></script>
+        <script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+        <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+        <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+        <script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+        <script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+        <script type="text/babel"src="resources/main-react.js"></script>
     </head>
     <body>
         <header>
@@ -31,7 +33,7 @@
         </section>
         -->
         <!--Angular application goes here! -->
-
+        <!--
         <div id="wrapper" ng-controller="TodoListController as todoList">
           <h2 ng-show="todoList.isReloading()" id="todo-list-placeholder">Loading...</h2>
           <div>
@@ -61,6 +63,13 @@
           <input ng-show="todos.length - todoList.remaining() > 0" ng-click="todoList.deleteCompleted()" class="button" value="Delete all completed">
           <div id="error" ng-bind="errorm"></div>
         </div>
+      -->
+        <div id="wrapper">
+          <p>Stuff</p>
+
+        </div>
+
+
 
 
        <!--<script type="text/javascript" src="main.js"></script> -->
